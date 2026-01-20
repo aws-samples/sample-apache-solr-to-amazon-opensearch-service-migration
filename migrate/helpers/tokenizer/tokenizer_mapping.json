@@ -1,0 +1,114 @@
+{
+  "classic": {
+      "type": "standard",
+      "max_token_length": {
+        "default": 255,
+        "valueFrom": "maxTokenLength"
+      }
+  },
+
+  "keyword": {
+    "type": "keyword",
+    "buffer_size": {
+      "default": 256
+    }
+  },
+  "letter": {
+    "type": "letter"
+  },
+  "lowercase": {
+    "type": "lowercase"
+  },
+  "nGram": {
+    "type": "ngram",
+    "min_gram": {
+      "valueFrom": "minGramSize",
+      "default": 1
+    },
+    "max_gram": {
+      "valueFrom": "maxGramSize",
+      "default": 2
+    },
+    "token_chars": {
+      "default": []
+    }
+  },
+  "edgeNGram": {
+    "type": "edge_ngram",
+    "min_gram": {
+      "valueFrom": "minGramSize",
+      "default": 1
+    },
+    "max_gram": {
+      "valueFrom": "maxGramSize",
+      "default": 2
+    },
+    "token_chars": {
+      "default": []
+    }
+  },
+  "pathHierarchy": {
+    "type": "path_hierarchy",
+    "buffer_size": {
+      "default": 1024
+    },
+    "reverse": {
+      "default": false,
+      "valueFrom": "reverse"
+    },
+    "skip": {
+      "default": 0,
+      "valueFrom": "skip"
+    },
+    "delimiter": {
+      "default": "/",
+      "valueFrom": "delimiter"
+    },
+    "replace": {
+      "default": "/",
+      "valueFrom": "replace"
+    }
+  },
+  "pattern": {
+    "type": "pattern",
+    "pattern": {
+      "default": "",
+      "valueFrom": "pattern"
+    },
+    "group": {           
+        "default": -1,
+        "valueFrom": "group"
+    }
+  },
+  "simplePattern": {
+    "type": "simple_pattern",
+    "pattern": {
+      "default": "",
+      "valueFrom": "pattern"
+    }
+  },
+  "simplePatternSplit": {
+    "type": "simple_pattern_split",
+    "pattern": {
+      "default": "",
+      "valueFrom": "pattern"
+    }
+  },
+  "standard": {
+      "type": "standard",
+      "max_token_length": {
+        "default": 255,
+        "valueFrom": "maxTokenLength"
+      }
+  },
+  "uax29URLEmail": {
+    "type": "uax_url_email",
+    "max_token_length": {
+        "default": 255,
+        "valueFrom": "maxTokenLength"
+      }
+  },
+  "whitespace": {
+    "type": "whitespace"
+  }
+}

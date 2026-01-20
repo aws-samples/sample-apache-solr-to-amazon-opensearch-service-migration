@@ -1,0 +1,23 @@
+*.env
+*.DS_Store
+*.idea
+.vscode/
+*.pyc
+__pycache__/
+*.py[cod]
+*.toml
+venv/*
+migration_schema/
+report.html
+*.log
+index.json
+
+# CDK build artifacts
+cdk/node_modules/
+cdk/package-lock.json
+cdk/**/*.js
+cdk/**/*.d.ts
+!cdk/jest.config.js
+cdk/.cdk.staging/
+cdk/cdk.out/
+cdk/assets/migration-tool.zip

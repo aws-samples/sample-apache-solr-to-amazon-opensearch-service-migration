@@ -1,0 +1,17 @@
+{
+    "solr.NestPathField": "nested",
+    "solr.TextField": "text",
+    "solr.StrField": "keyword",
+    "solr.BoolField": "boolean",
+    "solr.IntPointField": "integer",
+    "solr.LongPointField": "long",
+    "solr.FloatPointField": "float",
+    "solr.PointType": "xy_point",
+    "solr.RandomSortField": "integer",
+    "solr.SortableTextField": "text",
+    "solr.DoublePointField": "double",
+    "solr.DatePointField": "date",
+    "solr.BinaryField": "binary",
+    "solr.LatLonPointSpatialField": "geo_point",
+    "solr.SpatialRecursivePrefixTreeFieldType": "geo_shape"
+}

@@ -1,0 +1,39 @@
+version: "2"
+pipeline:
+  source:
+    s3:
+      codec:
+        json: { }
+      compression: "none"
+      aws:
+        region: ${AWS::Region}
+        sts_role_arn: ${pipelineRoleArn}
+      acknowledgments: true
+      scan:
+        buckets:
+          - bucket:
+              name: "${bucketName}"
+              filter:
+                include_prefix:
+                  - migration_data
+                exclude_suffix:
+                  - packages
+      delete_s3_objects_on_read: false
+  processor:
+    - date:
+        from_time_received: true
+        destination: "@timestamp"
+  sink:
+    - opensearch:
+        hosts: [ "https://${openSearchDomainVPCEndpoint}" ]
+        index: ${indexName}
+        aws:
+          sts_role_arn: ${pipelineRoleArn}
+          region: ${AWS::Region}
+        serverless: false
+        dlq:
+          s3:
+            bucket: "${bucketName}"
+            key_path_prefix: "sink-dlq/"
+            region: ${AWS::Region}
+            sts_role_arn: "${pipelineRoleArn}"

@@ -1,0 +1,8 @@
+{
+    "indexed": "index",
+    "stored": "store",
+    "docValues": "doc_values",
+    "useDocValuesAsStored": "doc_values",
+    "multiValued": "multi",
+    "required": "required"
+}
