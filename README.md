@@ -525,7 +525,29 @@ python3 main.py
 6. **Review the migration output files:**
    - `index.json`: Contains the mappings and settings configuration for Amazon OpenSearch Service
    - `report.html`: Summary of the migration with details on successful and failed mappings
-   - Open the HTML report to identify any fields that weren't migrated successfully
+   
+   **To view the HTML report from EC2:**
+   ```bash
+   # Option 1: Download to your local machine
+   # From your local terminal (not EC2):
+   aws ssm start-session --target <INSTANCE_ID> \
+     --document-name AWS-StartPortForwardingSession \
+     --parameters '{"portNumber":["22"],"localPortNumber":["2222"]}'
+   
+   # Then in another terminal:
+   scp -P 2222 ec2-user@localhost:~/sample-apache-solr-to-amazon-opensearch-service-migration/report.html ./
+   
+   # Option 2: Copy to S3 and download
+   # From EC2:
+   aws s3 cp report.html s3://<your-bucket>/reports/
+   # From local:
+   aws s3 cp s3://<your-bucket>/reports/report.html ./
+   
+   # Option 3: View as text in terminal
+   # From EC2:
+   python3 -m http.server 8000
+   # Then create port forwarding and open http://localhost:8000/report.html
+   ```
 
 **Note:** 
 The report contains details on fields, field types, filters, and other components.
@@ -560,8 +582,11 @@ Use the secret name from your CDK deployment outputs:
 
 ```bash
 # Get credentials using the secret name from CDK outputs
-aws secretsmanager get-secret-value --secret-id "<OPENSEARCH_SECRET_NAME>" --
-query 'SecretString' --output text | python3 -c "import sys, json; data=json.load(sys.stdin); print(f'Username: {data[\"username\"]}'); print(f'Password: {data[\"password\"]}')"
+aws secretsmanager get-secret-value \
+  --secret-id "<OPENSEARCH_SECRET_NAME>" \
+  --query 'SecretString' --output text \
+  | python3 -c 'import sys,json; print(json.load(sys.stdin))'
+```
 
 Replace `<OPENSEARCH_SECRET_NAME>` with the `OpensearchSecretName` value from your CDK deployment outputs.
 
@@ -683,8 +708,9 @@ The pipeline configuration must align with your OpenSearch index mappings to ens
 
 3: Update the configuration variable to Enable pipeline: 
 ```bash
+cd cdk
 vi .env 
-ENABLE_PIPELINE=true
+# Set ENABLE_PIPELINE=true
 ```
 
 4: Deploy the cdk code. This will deploy the pipeline. 
