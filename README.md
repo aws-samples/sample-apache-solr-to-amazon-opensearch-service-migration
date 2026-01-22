@@ -347,8 +347,9 @@ If you prefer to run the migration tool on your local machine or existing server
    ```
 
 6. **Review the output:**
+   - Reports are generated in `migration_schema/<collection-name>/` directory
    - `index.json` - OpenSearch index mappings and settings
-   - `report.html` - Schema migration report
+   - `schema_migration_report.html` - Schema migration report
    - `data_migration_report.html` - Data export report (if enabled)
 
 ### Local Setup Notes
@@ -523,30 +524,30 @@ python3 main.py
 ``` 
 
 6. **Review the migration output files:**
+   - Reports are generated in `migration_schema/<collection-name>/` directory
    - `index.json`: Contains the mappings and settings configuration for Amazon OpenSearch Service
-   - `report.html`: Summary of the migration with details on successful and failed mappings
+   - `schema_migration_report.html`: Summary of the migration with details on successful and failed mappings
    
    **To view the HTML report from EC2:**
    ```bash
-   # Option 1: Download to your local machine
-   # From your local terminal (not EC2):
+   # Option 1: Use Python HTTP server with port forwarding
+   # From EC2:
+   cd /home/ec2-user/sample-apache-solr-to-amazon-opensearch-service-migration
+   python3 -m http.server 8000
+   
+   # From local machine (in another terminal):
    aws ssm start-session --target <INSTANCE_ID> \
      --document-name AWS-StartPortForwardingSession \
-     --parameters '{"portNumber":["22"],"localPortNumber":["2222"]}'
+     --parameters '{"portNumber":["8000"],"localPortNumber":["8000"]}'
    
-   # Then in another terminal:
-   scp -P 2222 ec2-user@localhost:~/sample-apache-solr-to-amazon-opensearch-service-migration/report.html ./
+   # Then open in browser: http://localhost:8000/migration_schema/<collection-name>/schema_migration_report.html
    
    # Option 2: Copy to S3 and download
    # From EC2:
-   aws s3 cp report.html s3://<your-bucket>/reports/
+   cd migration_schema/<collection-name>
+   aws s3 cp schema_migration_report.html s3://<your-bucket>/reports/
    # From local:
-   aws s3 cp s3://<your-bucket>/reports/report.html ./
-   
-   # Option 3: View as text in terminal
-   # From EC2:
-   python3 -m http.server 8000
-   # Then create port forwarding and open http://localhost:8000/report.html
+   aws s3 cp s3://<your-bucket>/reports/schema_migration_report.html ./
    ```
 
 **Note:** 
@@ -660,7 +661,7 @@ python3 main.py
 ```
 
 3: Review the data migration report:
-- Check data_migration_report.html for export statistics
+- Check `migration_schema/<collection-name>/data_migration_report.html` for export statistics
 - Verify data files in S3: s3://<bucket-name>/migration_data/
 
 
@@ -835,7 +836,7 @@ git clone https://YOUR_TOKEN@github.com/aws-samples/sample-apache-solr-to-amazon
 **Problem:** Schema migration shows many errors in the report
 
 **Solution:**
-- Review `report.html` for specific field type or analyzer issues
+- Review `migration_schema/<collection-name>/schema_migration_report.html` for specific field type or analyzer issues
 - Some Solr features may not have direct OpenSearch equivalents
 - Check the migration logs for detailed error messages
 - Manually adjust the `index.json` file if needed before creating the index
@@ -929,5 +930,3 @@ CloudFormation does not delete S3 buckets that contain objects.
    aws s3 ls | grep migration
    # Should return no results
    ```
-
-
