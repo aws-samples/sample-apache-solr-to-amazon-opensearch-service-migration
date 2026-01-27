@@ -1,0 +1,22 @@
+{
+  "htmlStrip": {
+    "type": "html_strip"
+  },
+  "mapping": {
+    "type": "mapping",
+    "mappings_path": {
+      "create_package": true,
+      "valueFromFile": "mapping"
+    },
+    "mappings": {
+      "valueFromFile": "mapping",
+      "default": []
+    }
+  },
+  "patternReplace": {
+    "type": "pattern_replace",
+    "pattern": {
+      "valueFrom": "pattern"
+    }
+  }
+}

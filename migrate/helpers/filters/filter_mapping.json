@@ -1,0 +1,350 @@
+{
+  "apostrophe": {
+    "type": "apostrophe"
+  },
+  "asciiFolding": {
+    "type": "asciifolding",
+    "preserve_original": {
+      "default": false,
+      "valueFrom": "preserveOriginal"
+    }
+  },
+  "cjk_bigram": {
+    "type": "cjk_bigram",
+    "ignored_scripts": {
+      "default": []
+    },
+    "output_unigrams": {
+      "default": true
+    }
+  },
+  "cjk_width": {
+    "type": "cjk_width"
+  },
+  "classic": {
+    "type": "classic"
+  },
+  "daitchMokotoffSoundex": {
+    "type": "phonetic",
+    "encoder": {
+      "default": "daitch_mokotoff"
+    }
+  },
+  "doubleMetaphone": {
+    "type": "phonetic",
+    "encoder": {
+      "default": "double_metaphone"
+    }
+  },
+  "daitchMokotoffSoundex": {
+    "type": "phonetic",
+    "encoder": {
+      "default": "soundex"
+    }
+  },
+  "commonGrams": {
+    "type": "common_grams",
+    "ignore_case": {
+      "default": false,
+      "valueFrom": "ignoreCase"
+    },
+    "query_mode": {
+      "default": false
+    },
+    "common_words_path": {
+      "create_package": true,
+      "default": [],
+      "valueFromFile": "words"
+    },
+    "common_words": {
+      "default": [],
+      "valueFromFile": "words"
+    }
+  },
+  "condition": {
+    "type": "condition",
+    "filter": {
+      "default": []
+    },
+    "script": {
+      "default": ""
+    }
+  },
+  "decimal_digit": {
+    "type": "decimal_digit"
+  },
+  "delimitedPayload": {
+    "delimiter": {
+      "default": "1",
+      "valueFrom": "delimiter"
+    },
+    "encoding": {
+      "default": "1",
+      "valueFrom": "encoder"
+    },
+    "type": "delimited_payload"
+  },
+  "dictionary_decompounder": {
+    "type": "dictionary_decompounder"
+  },
+  "edgeNGram": {
+    "type": "edge_ngram",
+    "max_gram": {
+      "default": 1,
+      "valueFrom": "minGramSize"
+    },
+    "min_gram": {
+      "default": 1,
+      "valueFrom": "maxGramSize"
+    },
+    "preserve_original": {
+      "default": false,
+      "valueFrom": "preserveOriginal"
+    }
+  },
+  "elision": {
+    "type": "elision",
+    "articles": {
+      "default": []
+    },
+    "articles_case": {
+      "default": false
+    }
+  },
+  "fingerprint": {
+    "type": "fingerprint",
+    "max_output_size": {
+      "default": 255,
+      "valueFrom": "maxOutputTokenSize"
+    },
+    "separator": {
+      "default": " ",
+      "valueFrom": "separator"
+    }
+  },
+  "flattenGraph": {
+    "type": "flatten_graph"
+  },
+  "hunspellStem": {
+    "type": "hunspell",
+    "ignore_case": {
+      "default": "false",
+      "valueFrom": "ignore_case"
+    }
+  },
+  "keep_types": {
+    "type": "keep_types",
+    "types": {
+      "default": []
+    },
+    "mode": {
+      "default": "include"
+    }
+  },
+  "keepWord": {
+    "type": "keep",
+    "keep_words": {
+      "create_package": true,
+      "valueFromFile": "words"
+    },
+    "keep_words_case": {
+      "default": false,
+      "valueFrom": "ignoreCase"
+    }
+  },
+  "keywordMarker": {
+    "type": "keyword_marker",
+    "ignore_case": {
+      "default": false
+    },
+    "keywords_path": {
+      "create_package": true,
+      "valueFromFile": "protected"
+    },
+    "keywords": {
+      "default": [],
+      "valueFromFile": "protected"
+    }
+  },
+  "kStem": {
+    "type": "kstem"
+  },
+  "length": {
+    "type": "length",
+    "min": {
+      "default": 0,
+      "valueFrom": "min"
+    },
+    "max": {
+      "default": 2147483647,
+      "valueFrom": "max"
+    }
+  },
+  "limitTokenCount": {
+    "type": "limit",
+    "max_token_count": {
+      "default": 1,
+      "valueFrom": "maxTokenCount"
+    },
+    "consume_all_tokens": {
+      "default": false,
+      "valueFrom": "consumeAllTokens"
+    }
+  },
+  "lowercase": {
+    "type": "lowercase"
+  },
+  "minhash": {
+    "type": "min_hash"
+  },
+  "ngram": {
+    "type": "ngram",
+    "max_gram": {
+      "default": 2,
+      "valueFrom": "maxGramSize"
+    },
+    "min_gram": {
+      "default": 1,
+      "valueFrom": "minGramSize"
+    },
+    "preserve_original": {
+      "default": false,
+      "valueFrom": "preserveOriginal"
+    }
+  },
+  "patternReplace": {
+    "type": "pattern_replace",
+    "all": {
+      "default": true
+    },
+    "pattern": {
+      "default": "",
+      "valueFrom": "pattern"
+    },
+    "replacement": {
+      "default": "",
+      "valueFrom": "replacement"
+    }
+  },
+  "phonetic": {
+    "type": "phonetic",
+    "encoder": {
+      "valueFrom": "encoder",
+      "default": "metaphone"
+    }
+  },
+  "porterStem": {
+    "type": "porter_stem"
+  },
+  "remove_duplicates": {
+    "type": "remove_duplicates"
+  },
+  "reverse": {
+    "type": "reverse"
+  },
+  "shingle": {
+    "type": "shingle",
+    "min_shingle_size": {
+      "default": 2,
+      "valueFrom": "minShingleSize"
+    },
+    "max_shingle_size": {
+      "default": 2,
+      "valueFrom": "maxShingleSize"
+    },
+    "output_unigrams": {
+      "default": true,
+      "valueFrom": "outputUnigrams"
+    },
+    "output_unigrams_if_no_shingles": {
+      "default": false,
+      "valueFrom": "outputUnigramsIfNoShingles"
+    },
+    "token_separator": {
+      "default": " ",
+      "valueFrom": "tokenSeparator"
+    },
+    "filler_token": {
+      "default": "_",
+      "valueFrom": "fillerToken"
+    }
+  },
+  "snowballPorter": {
+    "type": "snowball",
+    "language": {
+      "valueFrom": "language",
+      "default": "English"
+    }
+  },
+  "stop": {
+    "type": "stop",
+    "ignore_case": {
+      "default": false,
+      "valueFrom": "ignoreCase"
+    },
+    "stopwords_path": {
+      "create_package": true,
+      "valueFromFile": "words"
+    },
+    "stopwords": {
+      "default": "_none_",
+      "valueFromFile": "words"
+    }
+  },
+  "synonym": {
+    "type": "synonym",
+    "expand": {
+      "default": true,
+      "valueFrom": "expand"
+    },
+    "lenient": {
+      "default": true
+    }
+  },
+  "synonymGraph": {
+    "type": "synonym",
+    "expand": {
+      "default": true
+    },
+    "lenient": {
+      "default": true
+    },
+    "synonyms_path": {
+      "create_package": true,
+      "valueFromFile": "synonyms"
+    },
+    "synonyms": {
+      "default": [],
+      "valueFromFile": "synonyms"
+    }
+  },
+  "wordDelimiterGraph": {
+    "type": "word_delimiter_graph"
+  },
+  "trim": {
+    "type": "trim"
+  },
+  "uppercase": {
+    "type": "uppercase"
+  },
+  "englishMinimalStem": {
+    "type": "stemmer",
+    "language": {
+      "default": "english"
+    }
+  },
+  "removeDuplicates": {
+    "type": "remove_duplicates"
+  },
+  "stemmerOverride": {
+    "type": "stemmer_override",
+    "rules": {
+      "default": [],
+      "valueFromFile": "dictionary"
+    },
+    "rules_path": {
+      "create_package": true,
+      "valueFromFile": "dictionary"
+    }
+  }
+}

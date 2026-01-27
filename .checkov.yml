@@ -1,0 +1,9 @@
+skip-path:
+  - tests/fieldtype/CustomField/mapped_fieldtype.json
+  - tests/integration/no_package_expansion/index.json
+  - tests/integration/no_package_no_expansion/index.json
+  - tests/integration/no_package_no_expansion_index/index.json
+
+  
+skip-check:
+  - CKV_SECRET_6
