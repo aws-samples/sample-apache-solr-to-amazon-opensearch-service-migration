@@ -930,3 +930,11 @@ CloudFormation does not delete S3 buckets that contain objects.
    aws s3 ls | grep migration
    # Should return no results
    ```
+
+## Security
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+## License
+
+This library is licensed under the MIT-0 License. See the LICENSE file.
