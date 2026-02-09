@@ -935,9 +935,9 @@ CloudFormation does not delete S3 buckets that contain objects.
 
 We would like to thank the following contributors for their valuable input and work on this project (no particular order):
 
-• Abhinandan Singh
-• Varun Sharma
-• Vamsi Krishna Ganti
+- Abhinandan Singh
+- Varun Sharma
+- Vamsi Krishna Ganti
 
 ## Security
 
